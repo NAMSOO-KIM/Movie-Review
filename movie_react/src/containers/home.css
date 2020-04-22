@@ -1,0 +1,59 @@
+div{
+    position: relative;
+    top:20px;
+}
+
+.logo1{
+/*     
+    left:1000px;
+    top:200px;*/
+    height:250px;
+    width:200px; 
+}
+button{
+    width:200px; 
+    left:0;
+    right:0; 
+   
+    margin-left:auto;
+    margin-right:auto;
+
+    display:flex;
+    justify-content: center;
+    align-items:center;
+    background:rgb(171, 26, 26);
+    color:#fff;
+    border:none;
+    
+    height:60px;
+    font-size:1.6em;
+    padding:0 2em;
+    cursor:pointer;
+    transition:800ms ease all;
+    outline:none;
+  }
+  button:hover{
+    background:rgb(43, 36, 36);
+    color:rgb(171, 26, 26);
+  }
+  button:before,button:after{
+    content:'';
+    position:absolute;
+    top:0;
+    right:0;
+    height:2px;
+    width:0;
+    background: rgb(171, 26, 26);
+    transition:400ms ease all;
+  }
+  button:after{
+    right:0;
+    top:0;
+    left:0;
+    bottom:0;
+  }
+  button:hover:before,button:hover:after{
+    width:100%;
+    transition:800ms ease all;
+  }
+  
