@@ -1,7 +1,6 @@
-img{
-
-    position: fixed;
+img[alt="kk"]
+{
+    
     left:0px;
     top:0px; 
- 
-}
+} 

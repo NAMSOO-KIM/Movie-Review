@@ -1,16 +1,84 @@
-div{
+@font-face{font-family:'RecipeKorea'; src:url('../font/Recipekorea 레코체 FONT.ttf')}
+@font-face{font-family:'RecipeKorea'; src:url('../font/Recipekorea 레코체 FONT.otf')}
+@font-face{font-family:'netflix'; src:url('../font/netflix.otf')}
+@font-face{font-family:'netflix'; src:url('../font/netflix.ttf')}
+
+div #home{
     position: relative;
     top:20px;
+    text-align: center;
+    font-family :'netflix'; 
+    color :white;
+    background-image:url('../img/gg.webp');
+    background-repeat:no-repeat;
+    background-size: 60% 30%;
+    background-position: 50%  -15%;
+  }
+
+table{
+  position: relative;
+  top:100px;
+  width:100%;
+  text-align: center;
+}
+td.long
+{
+ width :65%
+}
+td.short{
+  width:35%
+}
+video{
+  width:400px;
+  height:350px;
 }
 
-.logo1{
-/*     
-    left:1000px;
-    top:200px;*/
-    height:250px;
-    width:200px; 
+
+#r-text{
+  position: relative;
+  right:150px;
 }
-button{
+
+.button {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #f4511e;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 28px;
+  padding: 20px;
+  width: 200px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+/* button{
     width:200px; 
     left:0;
     right:0; 
@@ -55,5 +123,5 @@ button{
   button:hover:before,button:hover:after{
     width:100%;
     transition:800ms ease all;
-  }
-  
+  } */
+   
