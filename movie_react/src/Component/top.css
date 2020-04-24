@@ -1,6 +1,13 @@
 img[alt="kk"]
 {
     
-    left:0px;
-    top:0px; 
+    width: 170px;
+
+    /*top: 50%;
+    left: 50%;
+    
+    margin-left: 0;
+    text-align: center;
+    font-family: 'netflix';
+    color: white; */
 } 
