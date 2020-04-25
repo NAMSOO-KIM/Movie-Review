@@ -4,6 +4,7 @@ import Top from './Component/top'
 import Middle from './Component/middle'
 import Home from './containers/Home'
 import Main from './containers/main'
+import About from './containers/About'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 
 class App extends React.Component {
@@ -14,7 +15,7 @@ class App extends React.Component {
          
           <Route exact path="/" component = {Home}/>
           <Route path="/main" component = {Main}/>
-       
+          <Route path="/about" component ={About}/>
      
           </div>
    </Router>

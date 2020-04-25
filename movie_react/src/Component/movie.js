@@ -11,13 +11,12 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import Divider from '@material-ui/core/Divider';
-
+import {Link} from 'react-router-dom';
 
 var cardStyle = {
     
-    width: '30%',
-    height: '60%',
+    width: '13%',
+    height: '40%',
     
     display: "inline-block"
   }
@@ -32,32 +31,33 @@ class Movie extends Component {
     <div id="movie">
       <Card class={Movie} style={cardStyle} >
       <CardActionArea >
+      <Link to={this.props.main.name}>
         <CardMedia
           component="img"
-          alt="Contemplative Reptile"
+          alt="영화제목"
           
           
           image={movietop1}
-          title="Contemplative Reptile"
-        />
+          //title="Contemplative Reptile"
+        /> </Link>
         <CardContent>
-          <Typography gutterBottom variant="h5" component="h2">
+          {/* <Typography color="secondary" gutterBottom variant="h5" component="h2">
             {this.props.main.name}
-          </Typography>
-          <Typography variant="body2" color="secondary" component="p">
+          </Typography> */}
+          {/* <Typography variant="body2" color="secondary" component="p">
           {this.props.main.desc.slice(0,18)}
             
-          </Typography>
+          </Typography> */}
         </CardContent>
       </CardActionArea>
-      <CardActions>
+      {/* <CardActions>
         <Button size="small" color="secondary">
           리뷰확인
         </Button>
         <Button size="small" color="secondary">
          더보기
         </Button>
-      </CardActions>
+      </CardActions> */}
     </Card>
     </div>
   );
