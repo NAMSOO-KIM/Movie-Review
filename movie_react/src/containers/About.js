@@ -1,17 +1,14 @@
 import React,{Component} from 'react';
 import {Link} from 'react-router-dom';
-
 import './About.css'
 
-class About extends Component{
-    render(){
+ 
+const About = ({match}) => {
     return (
-            <div>
-          가가가ㅏ
-            </div>
-                   
-  );
-}
-
-}
+        <div id="About">
+            <h2>{match.params.title}</h2>
+        </div>
+    );
+};
+ 
 export default About;

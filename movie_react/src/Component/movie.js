@@ -12,6 +12,7 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import {Link} from 'react-router-dom';
+import About from '../containers/About';
 
 var cardStyle = {
     
@@ -31,21 +32,22 @@ class Movie extends Component {
     <div id="movie">
       <Card class={Movie} style={cardStyle} >
       <CardActionArea >
-      <Link to={this.props.main.name}>
+     <Link to={'/about/${this.props.title}'}>
         <CardMedia
           component="img"
           alt="영화제목"
+          
           
           
           image={movietop1}
           //title="Contemplative Reptile"
         /> </Link>
         <CardContent>
-          {/* <Typography color="secondary" gutterBottom variant="h5" component="h2">
-            {this.props.main.name}
-          </Typography> */}
-          {/* <Typography variant="body2" color="secondary" component="p">
-          {this.props.main.desc.slice(0,18)}
+          { <Typography color="secondary" gutterBottom variant="h5" component="h2">
+            {this.props.title}
+          </Typography> 
+          /* <Typography variant="body2" color="secondary" component="p">
+          {this.props.mo.desc.slice(0,18)}
             
           </Typography> */}
         </CardContent>

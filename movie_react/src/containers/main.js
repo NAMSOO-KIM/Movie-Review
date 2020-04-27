@@ -52,8 +52,8 @@ class main extends React.Component{
     render(){
       
       const maptoComponent = data=>{
-        return data.map((main, i) => {
-          return (<Movie main={main} key={i} />);
+        return data.map((MovieData, index) => {
+          return (<Movie title={MovieData.name} desc={MovieData.desc} key={index} />);
         });
       };
       
