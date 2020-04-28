@@ -32,7 +32,7 @@ class Movie extends Component {
     <div id="movie">
       <Card class={Movie} style={cardStyle} >
       <CardActionArea >
-     <Link to={'/about/${this.props.title}'}>
+     <Link to={'/about/${movie.id}'}>
         <CardMedia
           component="img"
           alt="영화제목"
