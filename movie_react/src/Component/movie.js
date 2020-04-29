@@ -25,15 +25,15 @@ var cardStyle = {
   
 class Movie extends Component {
   render(){
-      
+   
 
     return (
 
     <div id="movie">
       <Card class={Movie} style={cardStyle} >
       <CardActionArea >
-     <Link to={'/about/${movie.id}'}>
-        <CardMedia
+      <Link to={`/about/${this.props.title}`}>
+        <CardMedia 
           component="img"
           alt="영화제목"
           

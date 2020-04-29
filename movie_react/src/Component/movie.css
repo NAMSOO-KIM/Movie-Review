@@ -1,7 +1,8 @@
 div #movie{
     margin: 40px;
     display: inline;
-   
+    position : relative;
+    top:100px;
     margin-left: 60px;
     
 }

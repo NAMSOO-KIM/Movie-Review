@@ -15,9 +15,19 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
+import TextField from '@material-ui/core/TextField';
 
 
+const formStyle= {
+    
 
+  display :'inline-block',
+  backgroundColor: '#fcfcfb',
+
+}
+const submitStyle ={
+  height:'55px'
+}
 
 class main extends React.Component{
   constructor(props) {
@@ -62,7 +72,14 @@ class main extends React.Component{
         <Top />
 
         <h2>예매율 순위 1~20위</h2>
+        <form className={main} autoComplete="off" style={formStyle}>
+          <TextField id="outlined-basic" name="about" label="영화 제목" color="secondary" variant="outlined" />
 
+          <Button type="submit" variant="outlined" color="primary" style={submitStyle} >
+              검색
+          </Button>
+   
+        </form>
         {maptoComponent (this.state.MovieData)}
         
         </div>

@@ -17,7 +17,7 @@ class App extends React.Component {
           <Route path="/main" component = {Main}/>
           <Route path="/about" component ={About}/>
           <Route path="/about/:title" component={About} />
-
+          
           
           </div>
    </Router>

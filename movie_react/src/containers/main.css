@@ -1,4 +1,15 @@
 div#main{
     background-color: black;
-   
+    color:white;
+}
+
+#main form{
+    position: absolute;
+    top: 10px;
+    left: 1200px;
+    
+}
+
+#main h2{
+    
 }

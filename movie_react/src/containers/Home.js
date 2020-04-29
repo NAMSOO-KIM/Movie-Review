@@ -73,7 +73,6 @@ class Home extends Component{
 </tbody>
 </table>
 
-<Divider />
 </div>
    
    
