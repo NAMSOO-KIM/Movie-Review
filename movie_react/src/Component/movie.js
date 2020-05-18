@@ -13,6 +13,8 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import {Link} from 'react-router-dom';
 import About from '../containers/About';
+import axios from "axios"
+
 
 var cardStyle = {
     
@@ -26,31 +28,36 @@ var cardStyle = {
 class Movie extends Component {
   render(){
    
-
     return (
 
     <div id="movie">
       <Card class={Movie} style={cardStyle} >
-      <CardActionArea >
-      <Link to={`/about/${this.props.title}`}>
+      <CardActionArea 
+      >
+      <Link to={{
+          pathname: `/about/${this.props.name}`,
+          params : {myprops : 'movieData'}
+              }
+    }  style={{ textDecoration: 'none' }} >
         <CardMedia 
           component="img"
           alt="영화제목"
           
           
           
-          image={movietop1}
+          image={this.props.image}
           //title="Contemplative Reptile"
-        /> </Link>
+        /> 
         <CardContent>
           { <Typography color="secondary" gutterBottom variant="h5" component="h2">
-            {this.props.title}
+          {this.props.name}
           </Typography> 
           /* <Typography variant="body2" color="secondary" component="p">
           {this.props.mo.desc.slice(0,18)}
             
           </Typography> */}
         </CardContent>
+        </Link>
       </CardActionArea>
       {/* <CardActions>
         <Button size="small" color="secondary">

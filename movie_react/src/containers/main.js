@@ -16,6 +16,9 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
 import TextField from '@material-ui/core/TextField';
+import {Link} from 'react-router-dom';
+import About from './About';
+import axios from "axios"
 
 
 const formStyle= {
@@ -30,57 +33,103 @@ const submitStyle ={
 }
 
 class main extends React.Component{
-  constructor(props) {
-    super(props);
-    this.state = {
-        MovieData: [
-            {name: "1897", desc: "독일군에 의해 모든 통신망이 파괴된 상황 속에서"},
-            {name: "강남", desc: "영국군 병사 '스코필드'(조지 맥케이)와 '블레이크'(딘-찰스 채프먼)에게 하dddd"},
-            {name: "외상", desc: "둘은 1600명의 아군과 '블레이크'의 형(리차드 매든)을 구하기 위해"},
-            {name: "남자가 사랑할때", desc: "함정에 빠진 영국군 부대의 수장장군(콜린 퍼스)의 공격 중지 명령을 전하는 것!"},
-            {name: "1897", desc: "독일군에 의해 모든 통신망이 파괴된 상황 속에서"},
-            {name: "강남", desc: "영국군 병사 '스코필드'(조지 맥케이)와 '블레이크'(딘-찰스 채프먼)에게 하dddd"},
-            {name: "외상", desc: "둘은 1600명의 아군과 '블레이크'의 형(리차드 매든)을 구하기 위해"},
-            {name: "남자가 사랑할때", desc: "함정에 빠진 영국군 부대의 수장장군(콜린 퍼스)의 공격 중지 명령을 전하는 것!"},
-            {name: "1897", desc: "독일군에 의해 모든 통신망이 파괴된 상황 속에서"},
-            {name: "강남", desc: "영국군 병사 '스코필드'(조지 맥케이)와 '블레이크'(딘-찰스 채프먼)에게 하dddd"},
-            {name: "외상", desc: "둘은 1600명의 아군과 '블레이크'의 형(리차드 매든)을 구하기 위해"},
-            {name: "남자가 사랑할때", desc: "함정에 빠진 영국군 부대의 수장장군(콜린 퍼스)의 공격 중지 명령을 전하는 것!"},
-            {name: "1897", desc: "독일군에 의해 모든 통신망이 파괴된 상황 속에서"},
-            {name: "강남", desc: "영국군 병사 '스코필드'(조지 맥케이)와 '블레이크'(딘-찰스 채프먼)에게 하dddd"},
-            {name: "외상", desc: "둘은 1600명의 아군과 '블레이크'의 형(리차드 매든)을 구하기 위해"},
-            {name: "남자가 사랑할때", desc: "함정에 빠진 영국군 부대의 수장장군(콜린 퍼스)의 공격 중지 명령을 전하는 것!"},
-            {name: "1897", desc: "독일군에 의해 모든 통신망이 파괴된 상황 속에서"},
-            {name: "강남", desc: "영국군 병사 '스코필드'(조지 맥케이)와 '블레이크'(딘-찰스 채프먼)에게 하dddd"},
-            {name: "외상", desc: "둘은 1600명의 아군과 '블레이크'의 형(리차드 매든)을 구하기 위해"},
-            {name: "남자가 사랑할때", desc: "함정에 빠진 영국군 부대의 수장장군(콜린 퍼스)의 공격 중지 명령을 전하는 것!"}
+  _searchContact=(e) => {
+    this.setState({
+      keyword : e.target.value
+    })
+  
+  }
 
-        ]
-    };
-}
+
+  
+  constructor(props){
+  super(props);{
+
+      this.state = {
+      keyword:'',
+     
+      
+      }
+      
+   
+    }
+  }
+  //  _renderMovies=() => {
+  //    console.log("렌더무비함수실행");
+  //    const movies = this.state.movies.map(movie => {
+  //      return <Movie name ={movie.movie_name} image={movie.movie_image}
+  //       url={movie.movie_url} rate= {movie.movie_rate} 
+  //       genre={movie.movie_genre} director = {movie.movie_directer}
+  //       actor ={ movie.movie_actor} score= {movie.movie_score} 
+  //       percent={movie.movie_percent} key={movie.movie_id} />
+  //    })
+  //    return movies
+  //    console.log(`랜더무비함수:movies`)
+  //  }
+
+  _getMovies= async() => {
+    const movies = await this._callApi()
+    this.setState({
+      movies
+    })
+    // console.log(this.state.movies);
+  }
+  _callApi =() =>{
+      return axios.post('/main', {
+        data: 'send for main.js'
+      })
+      .then(function(data){
+    //  console.log(data.data.rows)
+     return data.data.rows
+   })
+    }
+  
+  componentDidMount(){
+    this._getMovies();
+    
+  }
+
 
     render(){
       
-      const maptoComponent = data=>{
-        return data.map((MovieData, index) => {
-          return (<Movie title={MovieData.name} desc={MovieData.desc} key={index} />);
-        });
-      };
+        
+        const mapToComponents = (data) => {
+    
+           data.sort(); // 3-1. this.state.contactData 를 정렬 (유니코드 값을 기준으로)
+          data = data.filter( // 3-2. 정렬된 데이터를 필터링
+            (movie) => { // 콜백함수의 인자는 element[, index, array] 콜백함수의 리턴값은 리턴값을 만족하는 엘리먼트들의 새로운 배열
+              return movie.movie_name.toLowerCase() // 이름기준, 대소문자 구별 없이, 검색 (indexOf 메서드로)
+              .indexOf(this.state.keyword.toLowerCase()) > -1; // indexOf메서드의 인자는 검색할 내용 (string) 검색 결과가 없으면 리턴값은 -1
+           }
+         ); // 4. input 태그에 글자가 입력 될 때마다 리턴되는 배열이 달라짐. 필터링 된 배열을 data에 담고
+         return data.map( // 5. 해당 data 배열을 매핑
+           movie => { // map 메서드의 첫 번째 인자 - item, 두 번째 인자 - index
+              return <Movie name ={movie.movie_name} image={movie.movie_image}
+                     url={movie.movie_url} rate= {movie.movie_rate} 
+                     genre={movie.movie_genre} director = {movie.movie_directer}
+                     actor ={ movie.movie_actor} score= {movie.movie_score} 
+                     percent={movie.movie_percent} key={movie.movie_id} />
+            } 
+          );
+        }
       
+     
+
+
+        
     return(
       <div id="main">
         <Top />
 
         <h2>예매율 순위 1~20위</h2>
         <form className={main} autoComplete="off" style={formStyle}>
-          <TextField id="outlined-basic" name="about" label="영화 제목" color="secondary" variant="outlined" />
-
-          <Button type="submit" variant="outlined" color="primary" style={submitStyle} >
-              검색
-          </Button>
-   
+          <TextField name="keyword" label="영화 제목" color="secondary"
+          onChange={this._searchContact} value={this.state.keyword} variant="outlined" />
+  
         </form>
-        {maptoComponent (this.state.MovieData)}
+       
+        {this.state.movies ? mapToComponents(this.state.movies) : "Loading.."}
+        
         
         </div>
     

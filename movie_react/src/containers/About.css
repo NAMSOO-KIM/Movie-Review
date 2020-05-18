@@ -1,3 +1,42 @@
 div #About{
-    background-color: aliceblue;
+    
+    color : red;
 }
+img#poster {
+    position : absolute;
+    width :400px;
+    height: 500px;
+    top:120px;
+    left:150px;
+}
+div #About h2 {
+    position : absolute;
+}
+h2#g0{
+    top:120px;
+    left:600px;
+}
+
+h2#g1{
+    top:170px;
+    left:600px;
+}
+h2#g2{
+    top:270px;
+    left:600px;
+}
+h2#g3{
+    top:320px;
+    left:600px;
+}
+
+h2#g4{
+    top:370px;
+    left:600px;
+}
+h2#g5{
+    top:420px;
+    left:600px;
+}
+
+

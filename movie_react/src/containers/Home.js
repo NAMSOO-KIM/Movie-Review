@@ -9,6 +9,7 @@ import video2 from '../img/vid2.mp4'
 import video3 from '../img/vid3.mp4'
 import Button from '@material-ui/core/Button';
 import Divider from '@material-ui/core/Divider';
+import axios from "axios"
 
 
 class Home extends Component{
@@ -23,9 +24,20 @@ class Home extends Component{
 			<div class="showcase-content">
 				<h1>분석된 영화 리뷰를 확인하세요</h1>
 				<p>인공지능 분석을 통한 영화리뷰</p>
-				<Link to="/main" style={{ textDecoration: 'none' }}>
-        <Button size ="large" variant="contained" color="secondary">
- 시작 하기
+				 <Link to="/main" style={{ textDecoration: 'none' }}> 
+        <Button size ="large" variant="contained" color="secondary"
+        //   onClick={()=>{
+        //     axios.post('/main', {
+        //       gyu: 'client_send'
+        //     }).then(function(data1){
+        //    console.log(data1)
+        //  })
+        //  .catch(function(err) {
+        //    console.log(err);
+        //  })
+        //    } }
+        >
+   시작 하기
 </Button>
 </Link>
 			</div>
