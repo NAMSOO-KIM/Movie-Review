@@ -11,6 +11,8 @@ from sklearn.pipeline import Pipeline
 from sklearn.metrics import accuracy_score
 import pickle
 from konlpy.tag import *
+import pymysql.cursors
+
 
 # 형태소 분석을 위한 함수
 def tokenizer(text) :
@@ -124,4 +126,19 @@ if __name__ == "__main__":
     neg_count=result.count('0')
     pos_ratio = pos_count/total_count*100
     neg_ratio = neg_count/total_count*100
+
+    conn = pymysql.connect( 
+        host='localhost',
+        user='root',
+        password='dpdltm137',
+        db='movie_review',
+        charset='utf8' 
+    )
+
+    curs = conn.cursor()
+    sql = "insert into reviews(review_id, review_movie_id, review_movie_name) values(%s,%s,%s)"
+    curs.execute(sql, (10 ,1, 'asdf'))
+    conn.commit()
+
+
 
