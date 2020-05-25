@@ -119,3 +119,9 @@ if __name__ == "__main__":
     review=final_result['리뷰'].tolist() #review 안에 리뷰들 리스트 형태로 저장
     accuracy=final_result['정확도'].tolist() #accuracy 안에 리뷰들 리스트 형태로 저장
     result=final_result['결과'].tolist() #result 안에 리뷰들 리스트 형태로 저장
+    total_count=len(result) 
+    pos_count=result.count('1')
+    neg_count=result.count('0')
+    pos_ratio = pos_count/total_count*100
+    neg_ratio = neg_count/total_count*100
+
