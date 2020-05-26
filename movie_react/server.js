@@ -8,11 +8,11 @@ const puppeteer = require('puppeteer');
 const connection = mysql.createConnection({
 	host: 'localhost',
 	user: 'root',
-	password: 'root',
+	password: '1234',
 	database: 'movie_review'
 });
 
-app.use(express.static(path.join(__dirname,"build")));
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(bodyParser.urlencoded({
 	extended: false

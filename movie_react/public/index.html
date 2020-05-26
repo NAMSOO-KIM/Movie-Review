@@ -1,39 +1,38 @@
+<!doctype html>
+<html>
 
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/Homelogo.png" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="Web site created using create-react-app"
-    />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-    
-    <script src="https://unpkg.com/react@15/dist/react.js"></script>
-    <script src="https://unpkg.com/react-dom@15/dist/react-dom.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.js"></script>
-    
+<head>
 
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
-    <title>MovieReview</title>
-  </head>
-  <body>
-   
-    <div id="root"></div>
-<!-- <script type="text/babel" src="../src/App.js" > -->
-  
-</script>
-   
-  </body>
+</head>
+
+<body>
+	<a href="/get">
+		<button>
+			get
+		</button>
+	</a>
+	<form method="post" action="/post">
+		<input type="submit" value="post">
+	</form>
+	
+	<form method="post" action="/home">
+		<input type="submit" value="home">
+	</form>
+	<a href="/python">
+		<button>
+			python!
+		</button>
+	</a><br>
+	<a href="/webCrawling">
+		<button>
+			webCrawling
+		</button>
+	</a>
+	<a href="/reviewCrawling">
+		<button>
+			reviewCrawling
+		</button>
+	</a>
+</body>
+
 </html>
