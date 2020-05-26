@@ -10,7 +10,7 @@ import { requirePropFactory } from '@material-ui/core';
 const button_style= {
   position :'absolute',
   top:'140px',
-  left:'800px'
+  left:'850px'
 }
 
 
@@ -50,14 +50,22 @@ class About extends Component{
         this._getMovies();
         console.log("디드마운트실행 in aboutJS")
       }
+
+     
     
     render(){
-    
-      function handleClick(url) {
-        
-        window.open(url,'_blank');
-        console.log('The link was clicked.');
-      }
+      function positive() {
+        alert("네거티브");
+        return axios.post('/0', {          
+          //d\ 
+  })
+    .then(function(data){
+   console.log(data)
+   return data
+ })
+        }
+      
+
 
     return (
         <div id="About">
@@ -89,7 +97,7 @@ class About extends Component{
    {this.state.detail?
    <h2 id="g5">{this.state.detail.movie_rate}
    </h2> : "Loading.."}
-  
+  <button onClick ={positive}> 긍정</button>
    
 
         </div>

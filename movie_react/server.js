@@ -177,6 +177,24 @@ app.get('/webCrawling', function (req, res) {
 	)()
 });
 
+app.post('/0', function(res, req) {
+	console.log(req.body)
+	connection.query("select * from reviews where review_result = 0", (err, rows) => 
+	{
+		if(!err){
+			var data = {
+				rows: rows
+			}
+			console.log(data)
+			 res.send(data)
+		}
+		else{
+			console.log(err);
+			res.send(err);
+		}
+	})	
+})
+
 
 app.listen(3000, function () {
 	console.log('서버가 시작되었습니다.');
