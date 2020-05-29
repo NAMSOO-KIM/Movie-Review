@@ -13,7 +13,7 @@ import purple from '@material-ui/core/colors/purple';
 
 const button_style= {
   position :'absolute',
-  top:'420px',
+  top:'440px',
   left:'600px'
 }
 const button2_style={
@@ -37,8 +37,7 @@ class About extends Component{
         
         this.setState({
           detail
-         
-          
+
         })
         //console.log(this.state.detail);
       }
@@ -102,7 +101,7 @@ class About extends Component{
              <Top />
    {this.state.detail? <img id ="poster" src={this.state.detail.movie_image}></img> : "loading"}
    {this.state.detail?
-   <h2 id="g0">{this.state.detail.movie_name}
+   <h2 id="g0">제목 : {this.state.detail.movie_name}
    </h2> : "Loading.."}
           
           {this.state.detail?
@@ -115,19 +114,19 @@ class About extends Component{
           : "loading"}
 
    {this.state.detail?
-   <h2 id="g1">{this.state.detail.movie_score}
+   <h2 id="g1">네티즌 만족도 : {this.state.detail.movie_score}
    </h2> : "Loading.."}
    {this.state.detail?
-   <h2 id="g2">{this.state.detail.movie_genre}
+   <h2 id="g2">장르 : {this.state.detail.movie_genre}
    </h2> : "Loading.."}
    {this.state.detail?
-   <h2 id="g3">{this.state.detail.movie_directer}
+   <h2 id="g3">감독 : {this.state.detail.movie_directer}
    </h2> : "Loading.."}
    {this.state.detail?
-   <h2 id="g4">{this.state.detail.movie_actor}
+   <h2 id="g4">배우 : {this.state.detail.movie_actor}
    </h2> : "Loading.."}
    {this.state.detail?
-   <h2 id="g5">{this.state.detail.movie_rate}
+   <h2 id="g5">관람등급 : {this.state.detail.movie_rate}
    </h2> : "Loading.."}
 
    {this.state.detail?
@@ -139,14 +138,13 @@ class About extends Component{
     : "Loadingg.."}
 
 {this.state.detail?
-  <Button id ="gyu3" variant="contained" style={button2_style} > 대중적리뷰 보기</Button> 
+  <Button id ="gyu3" variant="contained" > 대중적리뷰 보기</Button> 
     : "Loadingg.."}
 
- 
-
-   {this.state.sentence?
+{this.state.sentence?
    <Middle sentence={this.state.sentence} />
-:" 댓글 LOAD,,,"}
+   : ""}
+
         </div>
     );
 }}

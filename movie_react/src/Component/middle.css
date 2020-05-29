@@ -16,9 +16,10 @@ td.MuiTableCell-root{
     color: ivory;
 }
 div.MuiTablePagination-toolbar{
-    color:black;
+    color:white;
+    background-color: black;
     
 }
-div.MuiTablePagination-toolbar{
-    background-color: white;
+button.MuiIconButton-root{
+    color:white;
 }

@@ -128,7 +128,7 @@ class main extends React.Component{
   
         </form>
        
-        {this.state.movies ? mapToComponents(this.state.movies) : "Loading.."}
+        {this.state.movies ? mapToComponents(this.state.movies) :"loading.."}
         
         
         </div>
