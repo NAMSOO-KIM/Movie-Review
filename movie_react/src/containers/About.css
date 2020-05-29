@@ -22,21 +22,44 @@ h2#g1{
     left:600px;
 }
 h2#g2{
-    top:270px;
+    top:220px;
     left:600px;
 }
 h2#g3{
-    top:320px;
+    top:270px;
     left:600px;
 }
 
 h2#g4{
-    top:370px;
+    top:320px;
     left:600px;
 }
 h2#g5{
-    top:420px;
+    top:370px;
     left:600px;
 }
+
+Button#gyu1{
+    position : absolute;
+   
+    top:500px;
+    left:600px;
+}
+Button#gyu2{
+    position : absolute;
+   
+    top:500px;
+    left:750px;
+}
+
+Button#gyu3{
+    position : absolute;
+   
+    top:500px;
+    left:900px;
+}
+
+
+
 
 

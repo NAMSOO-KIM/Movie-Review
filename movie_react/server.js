@@ -8,11 +8,11 @@ const puppeteer = require('puppeteer');
 const connection = mysql.createConnection({
 	host: 'localhost',
 	user: 'root',
-	password: '1234',
+	password: 'root',
 	database: 'movie_review'
 });
 
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, "build")));
 
 app.use(bodyParser.urlencoded({
 	extended: false
@@ -56,8 +56,8 @@ app.post('/main', function (req, res) {
  
 let detail= null;
 app.post('/about', function (req, res) {
-	console.log(req.body.name)
-	connection.query(`select * from movies where movie_name = '${req.body.name}'`, (err, rows) => 
+	console.log(req.body.id)
+	connection.query(`select * from movies where movie_id = '${req.body.id}'`, (err, rows) => 
 	{
 	if(!err) {
 		var data = {
@@ -176,10 +176,27 @@ app.get('/webCrawling', function (req, res) {
 		}
 	)()
 });
+app.post('/1', function(req, res) {
+	console.log(req.body.id)
+	connection.query(`select * from reviews where review_result = 1 and review_movie_id = '${req.body.id}'`, (err, rows) => 
+	{
+		if(!err){
+			var data = {
+				rows: rows
+			}
+			console.log(data)
+			 res.send(data)
+		}
+		else{
+			console.log(err);
+			res.send(err);
+		}
+	})	
+})
 
-app.post('/0', function(res, req) {
-	console.log(req.body)
-	connection.query("select * from reviews where review_result = 0", (err, rows) => 
+app.post('/0', function(req, res) {
+	console.log(req.body.id)
+	connection.query(`select * from reviews where review_result = 0 and review_movie_id = '${req.body.id}'`, (err, rows) => 
 	{
 		if(!err){
 			var data = {

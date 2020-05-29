@@ -35,7 +35,7 @@ class Movie extends Component {
       <CardActionArea 
       >
       <Link to={{
-          pathname: `/about/${this.props.name}`,
+          pathname: `/about/${this.props.id}`,
           params : {myprops : 'movieData'}
               }
     }  style={{ textDecoration: 'none' }} >

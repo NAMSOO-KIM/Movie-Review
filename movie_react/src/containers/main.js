@@ -104,11 +104,11 @@ class main extends React.Component{
          ); // 4. input 태그에 글자가 입력 될 때마다 리턴되는 배열이 달라짐. 필터링 된 배열을 data에 담고
          return data.map( // 5. 해당 data 배열을 매핑
            movie => { // map 메서드의 첫 번째 인자 - item, 두 번째 인자 - index
-              return <Movie name ={movie.movie_name} image={movie.movie_image}
+              return <Movie id ={movie.movie_id}   name ={movie.movie_name} image={movie.movie_image}
                      url={movie.movie_url} rate= {movie.movie_rate} 
                      genre={movie.movie_genre} director = {movie.movie_directer}
                      actor ={ movie.movie_actor} score= {movie.movie_score} 
-                     percent={movie.movie_percent} key={movie.movie_id} />
+                     percent={movie.movie_percent} />
             } 
           );
         }
