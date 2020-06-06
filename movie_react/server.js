@@ -156,6 +156,7 @@ app.get('/webCrawling', function (req, res) {
 					return element.style.width
 				}, selecter);
 				console.log(movie_score)
+				
 
 				// movie_percent = 못구함
 
@@ -210,6 +211,31 @@ app.post('/0', function(req, res) {
 			res.send(err);
 		}
 	})	
+})
+
+app.post('/clustered', function(req, res) {
+	console.log(req.body.id)
+	connection.query(`select * from reviews where review_clustering = 1 and review_movie_id = '${req.body.id}'`, (err, rows) => 
+	{
+		if(!err){
+			var data = {
+				rows: rows
+			}
+			console.log(data)
+			 res.send(data)
+		}
+		else{
+			console.log(err);
+			res.send(err);
+		}
+	})	
+})
+
+app.post('/test', function(req, res) {
+	console.log(req.body)
+	res.send({
+		data: 0
+	})
 })
 
 

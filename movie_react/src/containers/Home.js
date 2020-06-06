@@ -13,6 +13,32 @@ import axios from "axios"
 
 
 class Home extends Component{
+  constructor(props) {
+    super(props);
+    this.state = {
+      contents: '긍정/부정 분류를 체험해보세요.'
+    }
+  }
+
+  test() {
+    let tmp = document.getElementById("contents").value;
+    axios.post("/test", {
+      contents: tmp
+    }).then(function (data) {
+      console.log(data.data.data)
+      if (data.data.data==0){
+        this.setState({
+          contents: "부정입니다."
+        })    
+         }
+      if (data.data.data==1){
+          this.setState({
+            contents: "긍정입니다."
+          })    
+           }
+    }.bind(this))
+  }
+
     render(){
     return (
         <div id="home">
@@ -42,7 +68,9 @@ class Home extends Component{
 </Link>
 			</div>
 		</header>
-        
+    <input type="text" id="contents"></input>
+    <button onClick={this.test.bind(this)}>테스트</button>
+    <div>{this.state.contents}</div>
 <table>
   <tbody>
 <tr>
@@ -56,6 +84,11 @@ class Home extends Component{
 </video>
 </td>
 </tr>
+ <tr>
+  <td colspan="2">
+   
+  </td>
+</tr> 
 
 <tr>
 <td class="short">

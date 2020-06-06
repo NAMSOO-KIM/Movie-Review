@@ -85,6 +85,24 @@ class About extends Component{
          }.bind(this))
         
        }
+       
+       clustered= () =>{
+        return axios.post('/clustered', {
+          id : this.state.id
+        })
+        .then(function(data){
+          console.log(data.data.rows)
+       const sentence= data.data.rows
+       
+       this.setState({
+         sentence
+         
+       }) 
+       
+       console.log(this.state) 
+        }.bind(this))
+       
+      }
       
       componentDidMount(){
         this._getMovies();
@@ -138,7 +156,7 @@ class About extends Component{
     : "Loadingg.."}
 
 {this.state.detail?
-  <Button id ="gyu3" variant="contained" > 대중적리뷰 보기</Button> 
+  <Button id ="gyu3" variant="contained"  onClick={this.clustered} > 대중적리뷰 보기</Button> 
     : "Loadingg.."}
 
 {this.state.sentence?
