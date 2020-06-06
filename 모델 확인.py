@@ -11,6 +11,7 @@ from sklearn.pipeline import Pipeline
 from sklearn.metrics import accuracy_score
 import pickle
 from konlpy.tag import *
+import sys
 
 # 형태소 분석을 위한 함수
 def tokenizer(text) :
@@ -25,21 +26,22 @@ def step6_using_model() :
 
     import numpy as np
 
-    while True :
-        text = input('리뷰를 작성해주세요 :')
+    # while True :
+        # text = input('리뷰를 작성해주세요 :')
+    text = sys.argv[0]
+    str = [text]
+    # 예측 정확도
+    r1 = np.max(pipe.predict_proba(str) * 100)
+    # 예측 결과
+    r2 = pipe.predict(str)[0]
 
-        str = [text]
-        # 예측 정확도
-        r1 = np.max(pipe.predict_proba(str) * 100)
-        # 예측 결과
-        r2 = pipe.predict(str)[0]
+    if r2 == '1' :
+        print('1:정확도 : %.3f' % r1)
+         
+    else :
+        print('0:정확도 : %.3f' % r1)
 
-        if r2 == '1' :
-            print('긍정적인 리뷰')
-        else :
-            print('부정적인 리뷰')
-
-        print('정확도 : %.3f' % r1)
+        
 
 
 if __name__ == "__main__":

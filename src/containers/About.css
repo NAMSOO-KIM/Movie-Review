@@ -39,6 +39,18 @@ h2#g5{
     left:600px;
 }
 
+div#g6{
+    position: absolute;
+    display: inline-block;
+    width: 200px;
+    height: 200px;
+    top: 120px;
+    left: 1100px;
+    text-align: center;
+    vertical-align: middle;
+    color: black;
+}
+
 Button#gyu1{
     position : absolute;
    

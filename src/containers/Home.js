@@ -28,12 +28,12 @@ class Home extends Component{
       console.log(data.data.data)
       if (data.data.data==0){
         this.setState({
-          contents: "부정입니다."
+          contents: "부정적인 리뷰 입니다."
         })    
          }
       if (data.data.data==1){
           this.setState({
-            contents: "긍정입니다."
+            contents: "긍정적인 리뷰 입니다."
           })    
            }
     }.bind(this))
@@ -69,14 +69,14 @@ class Home extends Component{
 			</div>
 		</header>
     <input type="text" id="contents"></input>
-    <button onClick={this.test.bind(this)}>테스트</button>
+    <button onClick={this.test.bind(this)}>긍정/부정 리뷰 확인하기!</button>
     <div>{this.state.contents}</div>
 <table>
   <tbody>
 <tr>
 <td class="long">
   <h1>영화에 대한 리뷰를 실시간으로 확인하세요</h1>
-웹 크롤링을 통해 20개의 영화에 대한 네이버 리뷰를 실시간으로 제공합니다.
+웹 크롤링을 통해 10개의 영화에 대한 네이버 리뷰를 실시간으로 제공합니다.
 </td>
 <td class="short">
 <video autoplay="autoplay" muted="muted" loop>

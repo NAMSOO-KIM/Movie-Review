@@ -378,7 +378,7 @@ def db_connect(final_result):
     conn = pymysql.connect( #DB연결
     host='localhost',
     user='root',
-    password='1234',
+    password='dpdltm137',
     db='movie_review',
     charset='utf8' 
     )

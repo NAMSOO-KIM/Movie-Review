@@ -113,6 +113,16 @@ class About extends Component{
     
 
     render(){
+      let circleStyle = {}
+      if(this.state.detail) {
+        circleStyle = {
+          background: 'conic-gradient(blue 0%' + this.state.detail.movie_percent + '%, red 0)',
+          borderRadius: '50%',
+          display: 'inline-block',
+          width: '200px',
+          height: '200px'
+        }
+      }
 
     return (
         <div id="About">
@@ -146,6 +156,13 @@ class About extends Component{
    {this.state.detail?
    <h2 id="g5">관람등급 : {this.state.detail.movie_rate}
    </h2> : "Loading.."}
+   {this.state.detail?
+   <div id="g6">
+     <div style={circleStyle}>
+     <div>긍정: {this.state.detail.movie_percent}%</div>
+     <div>부정: {100 - this.state.detail.movie_percent}%</div>
+     </div>
+   </div>: "Loading.."}
 
    {this.state.detail?
   <Button id ="gyu1" variant="contained" color="primary" onClick={this.positive}>긍정리뷰 보기</Button> 
