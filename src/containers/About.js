@@ -10,6 +10,16 @@ import { green } from '@material-ui/core/colors';
 import { MuiThemeProvider, createMuiTheme } from 'material-ui/styles'
 import purple from '@material-ui/core/colors/purple';
 
+import Paper from '@material-ui/core/Paper';
+import {
+  Chart,
+  PieSeries,
+  Title,
+} from '@devexpress/dx-react-chart-material-ui';
+
+import { Animation } from '@devexpress/dx-react-chart';
+
+let data;
 
 const button_style= {
   position :'absolute',
@@ -23,21 +33,28 @@ const button2_style={
 class About extends Component{
 
   constructor(props){
-    
+  
     super(props);
     {
         this.state = {
-          id : props.match.params.name
+          id : props.match.params.name,
          
         }
+
     }
 }
     _getMovies= async() => {
         const detail = await this._callApi()
-        
+        console.log(detail.per)
+        const data = [
+          { country: '긍정', area: detail.per},
+          { country: '부정', area: 100-detail.per },
+         
+        ];
         this.setState({
-          detail
-
+          detail,
+          data
+         
         })
         //console.log(this.state.detail);
       }
@@ -113,23 +130,38 @@ class About extends Component{
     
 
     render(){
-      let circleStyle = {}
-      if(this.state.detail) {
-        circleStyle = {
-          background: 'conic-gradient(blue 0%' + this.state.detail.movie_percent + '%, red 0)',
-          borderRadius: '50%',
-          display: 'inline-block',
-          width: '200px',
-          height: '200px'
-        }
-      }
+      const { data: chartData } = this.state;
+
+      let circleStyle = {
+        position: 'absolute',
+        display: 'inline-block',
+        width: '200px',
+        height: '200px',
+        top: '-100px',
+        left: '1100px',
+        textAlign: 'center',
+        verticalAlign: 'middle',
+        color: 'black'
+    }
+      
+
+      // let circleStyle = {}
+      // if(this.state.detail) {
+      //   circleStyle = {
+      //     background: 'conic-gradient(blue 0%' + this.state.detail.per + '%, red 0)',
+      //     borderRadius: '50%',
+      //     display: 'inline-block',
+      //     width: '200px',
+      //     height: '200px'
+      //   }
+      // }
 
     return (
         <div id="About">
              <Top />
    {this.state.detail? <img id ="poster" src={this.state.detail.movie_image}></img> : "loading"}
    {this.state.detail?
-   <h2 id="g0">제목 : {this.state.detail.movie_name}
+   <h2 id="g0">❖ 제목 : {this.state.detail.movie_name}
    </h2> : "Loading.."}
           
           {this.state.detail?
@@ -141,28 +173,49 @@ class About extends Component{
            color="secondary">예매하기</Button>
           : "loading"}
 
+   {/* {this.state.detail?
+   <h2 id="g1">❖ 네티즌 만족도 : {this.state.detail.movie_score}
+   </h2> : "Loading.."} */}
    {this.state.detail?
-   <h2 id="g1">네티즌 만족도 : {this.state.detail.movie_score}
+   <h2 id="g1">❖ 장르 : {this.state.detail.movie_genre}
    </h2> : "Loading.."}
    {this.state.detail?
-   <h2 id="g2">장르 : {this.state.detail.movie_genre}
+   <h2 id="g2">❖ 감독 : {this.state.detail.movie_directer}
    </h2> : "Loading.."}
    {this.state.detail?
-   <h2 id="g3">감독 : {this.state.detail.movie_directer}
+   <h2 id="g4">❖ 배우 : {this.state.detail.movie_actor}
    </h2> : "Loading.."}
    {this.state.detail?
-   <h2 id="g4">배우 : {this.state.detail.movie_actor}
+   <h2 id="g3">❖ 관람등급 : {this.state.detail.movie_rate}
    </h2> : "Loading.."}
-   {this.state.detail?
-   <h2 id="g5">관람등급 : {this.state.detail.movie_rate}
-   </h2> : "Loading.."}
-   {this.state.detail?
+
+    {/* {this.state.detail?
    <div id="g6">
      <div style={circleStyle}>
-     <div>긍정: {this.state.detail.movie_percent}%</div>
-     <div>부정: {100 - this.state.detail.movie_percent}%</div>
+     <div>긍정: {this.state.detail.per}%</div>
+     <div>부정: {100 - this.state.detail.per}%</div>
      </div>
-   </div>: "Loading.."}
+   </div>: "Loading.."}  */}
+      {this.state.detail?
+    <Paper id="gyu_chart" style={circleStyle}>
+        <Chart
+          data={chartData}
+        >
+          <PieSeries
+            valueField="area"
+            argumentField="country"
+          />
+          <Title
+            text="긍정:55% 부정:45%"
+          />
+          <Animation />
+        </Chart>
+      </Paper>
+      : "Loading.."}
+  {this.state.detail?
+  <h4 id ="gyu0">긍정:{this.state.detail.per}%  부정:{100-this.state.detail.per}%</h4> 
+    : "Loadingg.."}
+
 
    {this.state.detail?
   <Button id ="gyu1" variant="contained" color="primary" onClick={this.positive}>긍정리뷰 보기</Button> 

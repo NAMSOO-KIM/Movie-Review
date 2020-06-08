@@ -14,7 +14,7 @@ const createConn = function () {
    connection = mysql.createConnection({
       host: 'localhost',
       user: 'root',
-      password: 'dpdltm137',
+      password: 'root',
       database: 'movie_review'
    });
 
@@ -76,25 +76,50 @@ app.post('/main', function (req, res) {
 		}
 	})	
 });
+
+app.post('/main', function (req, res) {
+	// console.log(req.body.data)
+	connection.query("select * from movies", (err, rows) => 
+	{
+		if(!err){
+			var data = {
+				rows: rows
+			}
+			// console.log(data)
+			res.send(data)
+		}
+		else{
+			console.log(err);
+			res.send(err);
+		}
+	})	
+});
   
 let detail= null;
 app.post('/about', function (req, res) {
 	console.log(req.body.id)
-	connection.query(`select * from movies where movie_id = '${req.body.id}'`, (err, rows) => 
-	{
-	if(!err) {
-		var data = {
-			rows : rows
-		}
-	}
-	else{
-		console.log(err);
-		res.send(err);
-	}
-	console.log(data)
-	 res.send(data)
-}
-)
+	let pos
+	let neg
+	connection.query(`select * from reviews where review_movie_id = ${req.body.id} and review_result = 1`, (err, rows) => {
+		console.log(rows)
+		if(!err) pos = rows.length;
+		connection.query(`select * from reviews where review_movie_id = ${req.body.id} and review_result = 0`, (err, rows) => {
+			if(!err) neg = rows.length;
+			connection.query(`select * from movies where movie_id = ${req.body.id}`, (err, rows) => {
+				rows[0].per= parseInt((pos / (pos + neg)) *100)
+				console.log(pos)
+				console.log(neg)
+				console.log(rows)	
+				if(!err) {
+					var data = {
+						rows : rows
+					}
+				}
+				res.send(data)
+			})
+		})
+	})
+
 });
 
 function webCrawling() {
@@ -268,6 +293,6 @@ app.post('/clustered', function(req, res) {
 })
 
 
-app.listen(3002, function () {
+app.listen(3000, function () {
 	console.log('서버가 시작되었습니다.');
 });

@@ -50,7 +50,7 @@ class Movie extends Component {
         /> 
         <CardContent>
           { <Typography color="secondary" gutterBottom variant="h5" component="h2">
-          {this.props.name}
+          
           </Typography> 
           /* <Typography variant="body2" color="secondary" component="p">
           {this.props.mo.desc.slice(0,18)}

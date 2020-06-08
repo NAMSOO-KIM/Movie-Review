@@ -78,13 +78,23 @@ div #home{
     text-align: center;
     margin-top: 9rem;
   }
-  
+  div.form-group{
+    display:inline-block;
+  }
 
 table{
   position: relative;
   top:100px;
   width:100%;
   text-align: center;
+}
+
+#check_button{
+  position: relative;
+  height:70px;
+  bottom:29px;
+  font-family :'netflix'; 
+ 
 }
 td.long
 {
@@ -98,7 +108,35 @@ video{
   height:350px;
 }
 
-
+input:-ms-input-placeholder {color:#a8a8a8; } 
+input::-webkit-input-placeholder {color:#a8a8a8;} 
+input::-moz-placeholder {color:#a8a8a8;} 
+div#naver{
+  position: relative;
+  height: 40px;
+  width: 400px;
+  border: 1px solid #1b5ac2;
+  background: #ffffff;
+  left:185px;
+  }
+  input#contents{
+    font-size: 16px;
+    width: 325px;
+    padding: 10px;
+    border: 0px;
+    outline: none;
+    float: left;
+    font-family :'netflix'; 
+    }
+  button#naver{
+      width: 50px;
+      height: 100%;
+      border: 0px;
+      background: #c90b0b;
+      outline: none;
+      float: right;
+      color: #ffffff
+      }
 #r-text{
   position: relative;
   right:165px;

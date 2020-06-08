@@ -1,10 +1,27 @@
-div #movie{
+
+div#movie{
     margin: 40px;
     display: inline;
     position : relative;
     top:100px;
     margin-left: 60px;
-    
+     
 }
+.MuiCardMedia-img{
+   
+      
 
-
+    transform: scale(1);
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -o-transform: scale(1);
+    transition: all 0.3s ease-in-out;   /* 부드러운 모션을 위해 추가*/
+}
+.MuiCardMedia-img:hover {
+    transform: scale(1.2);
+    -webkit-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    -o-transform: scale(1.2);
+  }
