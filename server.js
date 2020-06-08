@@ -205,10 +205,20 @@ function webCrawling() {
 }
 
 app.post("/test", function(req, res) {
-	// python 실행
-	let result = 0;
-	res.send({
-		data: result
+	let options = {
+		mode: 'text',
+		pythonOptions: ['-u'],
+		encoding: 'utf8',
+		args: [req.body.contents]
+	}
+	let answer;
+	PythonShell.run('modelCheck.py', options, function(err, results) {
+		let answer = results[0].split(':')
+		res.send({
+			contents: req.body.contents,
+			answer: answer[0],
+			acc: answer[1]
+		})
 	})
 })
 

@@ -1,0 +1,29 @@
+{
+  "files": {
+    "main.css": "./static/css/main.b8f105ea.chunk.css",
+    "main.js": "./static/js/main.969d9e9d.chunk.js",
+    "main.js.map": "./static/js/main.969d9e9d.chunk.js.map",
+    "runtime-main.js": "./static/js/runtime-main.4168aec3.js",
+    "runtime-main.js.map": "./static/js/runtime-main.4168aec3.js.map",
+    "static/js/2.87c59a46.chunk.js": "./static/js/2.87c59a46.chunk.js",
+    "static/js/2.87c59a46.chunk.js.map": "./static/js/2.87c59a46.chunk.js.map",
+    "index.html": "./index.html",
+    "precache-manifest.147df2fc1fcb0f03066273f389546d89.js": "./precache-manifest.147df2fc1fcb0f03066273f389546d89.js",
+    "service-worker.js": "./service-worker.js",
+    "static/css/main.b8f105ea.chunk.css.map": "./static/css/main.b8f105ea.chunk.css.map",
+    "static/js/2.87c59a46.chunk.js.LICENSE.txt": "./static/js/2.87c59a46.chunk.js.LICENSE.txt",
+    "static/media/Homelogo.png": "./static/media/Homelogo.ea5c8919.png",
+    "static/media/Homelogo2.PNG": "./static/media/Homelogo2.e97bac1a.PNG",
+    "static/media/home.css": "./static/media/netflix.b60d1452.ttf",
+    "static/media/movie_highlight1.mp4": "./static/media/movie_highlight1.0ac4eb42.mp4",
+    "static/media/movie_tobusan.PNG": "./static/media/movie_tobusan.9a8398cb.PNG",
+    "static/media/vid2.mp4": "./static/media/vid2.c25dc3f4.mp4",
+    "static/media/vid3.mp4": "./static/media/vid3.24d9baeb.mp4"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.4168aec3.js",
+    "static/js/2.87c59a46.chunk.js",
+    "static/css/main.b8f105ea.chunk.css",
+    "static/js/main.969d9e9d.chunk.js"
+  ]
+}

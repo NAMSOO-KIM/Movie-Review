@@ -24,16 +24,15 @@ class Home extends Component{
     let tmp = document.getElementById("contents").value;
     axios.post("/test", {
       contents: tmp
-    }).then(function (data) {
-      console.log(data.data.data)
-      if (data.data.data==0){
+    }).then(function (res) {
+      if (res.data.answer==0){
         this.setState({
-          contents: "부정적인 리뷰 입니다."
+          contents: res.data.contents + " 부정적인 리뷰 입니다. 정확도:" + res.data.acc
         })    
          }
-      if (data.data.data==1){
+      if (res.data.answer==1){
           this.setState({
-            contents: "긍정적인 리뷰 입니다."
+            contents: res.data.contents + " 긍정적인 리뷰 입니다. 정확도:" + res.data.acc
           })    
            }
     }.bind(this))
