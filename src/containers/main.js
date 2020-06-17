@@ -121,7 +121,7 @@ class main extends React.Component{
       <div id="main">
         <Top />
 
-        <h2>예매율 순위 1~20위</h2>
+        <h2>예매율 순위 1~10위</h2>
         <form className={main} autoComplete="off" style={formStyle}>
           <TextField name="keyword" label="영화 제목" color="secondary"
           onChange={this._searchContact} value={this.state.keyword} variant="outlined" />

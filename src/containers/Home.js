@@ -1,3 +1,4 @@
+
 import React,{Component} from 'react';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
 import About from './main';
@@ -10,18 +11,35 @@ import video3 from '../img/vid3.mp4'
 import Button from '@material-ui/core/Button';
 import Divider from '@material-ui/core/Divider';
 import axios from "axios"
+import TextField from '@material-ui/core/TextField';
+import { makeStyles } from '@material-ui/core/styles';
 
+
+
+// const useStyles = makeStyles((theme) => ({
+
+//       margin: theme.spacing(1),
+//       width: '25ch',
+//       background :'white',
+//       color : 'red',
+//       height :'55px'
+    
+  
+// }));
 
 class Home extends Component{
   constructor(props) {
     super(props);
     this.state = {
-      contents: '긍정/부정 분류를 체험해보세요.'
+      contents: '현재 사용중인 인공지능 모델을 통해서 긍정/부정 분류를 바로 체험해 볼 수 있습니다.'
     }
   }
 
   test() {
     let tmp = document.getElementById("contents").value;
+    this.setState({
+      contents: 'loading...'
+    })
     axios.post("/test", {
       contents: tmp
     }).then(function (res) {
@@ -67,11 +85,26 @@ class Home extends Component{
 </Link>
 			</div>
 		</header>
-    <input type="text" id="contents"></input>
+    {/* <input type="text" id="contents"></input>
     <button onClick={this.test.bind(this)}>긍정/부정 리뷰 확인하기!</button>
-    <div>{this.state.contents}</div>
+    <div>{this.state.contents}</div> */}
 <table>
   <tbody>
+    <tr>
+      <td class="long">
+{/* <textarea id="contents" rows="4" cols="70" placeholder="ex)  시간 가는줄 모르고 봤어요"></textarea>
+    <Button variant="contained" id="check_button" onClick={this.test.bind(this)}>확인하기</Button> */}
+      <div id="naver">
+	<input type="text" id="contents" placeholder="댓글 테스트"></input>
+	<button id="naver" onClick={this.test.bind(this)}>확인</button>
+  <div>{this.state.contents}</div>
+    </div>
+      
+      </td>
+      <td class="short"> 
+      <h1>인공지능 모델을 직접 체험해보세요</h1>
+      </td>
+    </tr>
 <tr>
 <td class="long">
   <h1>영화에 대한 리뷰를 실시간으로 확인하세요</h1>

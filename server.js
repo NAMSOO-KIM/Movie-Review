@@ -38,18 +38,18 @@ const createConn = function () {
 createConn();
 
 
-setInterval(function() {
-	console.log('webCrawling!');
-	webCrawling();
-	let options = {
-		mode: 'text',
-		pythonOptions: ['-u'],
-		args: []
-	}
-	PythonShell.run('posNeg.py', options, function(err) {
-		console.log(err)
-	})
-}, 1000 * 60 * 60);
+// setInterval(function() {
+// 	console.log('webCrawling!');
+// 	webCrawling();
+// 	let options = {
+// 		mode: 'text',
+// 		pythonOptions: ['-u'],
+// 		args: []
+// 	}
+// 	PythonShell.run('posNeg.py', options, function(err) {
+// 		console.log(err)
+// 	})
+// }, 1000 * 60 * 60);
 
 app.use(express.static(path.join(__dirname, "build")));
 
@@ -76,25 +76,50 @@ app.post('/main', function (req, res) {
 		}
 	})	
 });
+
+app.post('/main', function (req, res) {
+	// console.log(req.body.data)
+	connection.query("select * from movies", (err, rows) => 
+	{
+		if(!err){
+			var data = {
+				rows: rows
+			}
+			// console.log(data)
+			res.send(data)
+		}
+		else{
+			console.log(err);
+			res.send(err);
+		}
+	})	
+});
   
 let detail= null;
 app.post('/about', function (req, res) {
 	console.log(req.body.id)
-	connection.query(`select * from movies where movie_id = '${req.body.id}'`, (err, rows) => 
-	{
-	if(!err) {
-		var data = {
-			rows : rows
-		}
-	}
-	else{
-		console.log(err);
-		res.send(err);
-	}
-	console.log(data)
-	 res.send(data)
-}
-)
+	let pos
+	let neg
+	connection.query(`select * from reviews where review_movie_id = ${req.body.id} and review_result = 1`, (err, rows) => {
+		console.log(rows)
+		if(!err) pos = rows.length;
+		connection.query(`select * from reviews where review_movie_id = ${req.body.id} and review_result = 0`, (err, rows) => {
+			if(!err) neg = rows.length;
+			connection.query(`select * from movies where movie_id = ${req.body.id}`, (err, rows) => {
+				rows[0].per= parseInt((pos / (pos + neg)) *100)
+				console.log(pos)
+				console.log(neg)
+				console.log(rows)	
+				if(!err) {
+					var data = {
+						rows : rows
+					}
+				}
+				res.send(data)
+			})
+		})
+	})
+
 });
 
 function webCrawling() {

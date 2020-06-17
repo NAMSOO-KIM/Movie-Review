@@ -1,6 +1,6 @@
 div #About{
     
-    color : red;
+    color : white;
 }
 img#poster {
     position : absolute;
@@ -39,7 +39,7 @@ h2#g5{
     left:600px;
 }
 
-div#g6{
+/* div#g6{
     position: absolute;
     display: inline-block;
     width: 200px;
@@ -49,6 +49,31 @@ div#g6{
     text-align: center;
     vertical-align: middle;
     color: black;
+} */
+
+/* 
+svg{
+    position: absolute;
+    display: inline-block;
+    width: 200px;
+    height: 200px;
+    top: -100px;
+    left: 1100px;
+    text-align: center;
+    vertical-align: middle;
+    color: black;
+} */
+h4#gyu0{
+    position: absolute;
+    top:270px;
+    left:1120px;
+    color:blue;
+}
+h4#gyu00{
+    position: absolute;
+    top:270px;
+    left:1195px;
+    color:red;
 }
 
 Button#gyu1{

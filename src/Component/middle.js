@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
+import TableHead from '@material-ui/core/TableHead';
 import TableCell from '@material-ui/core/TableCell';
 import TableContainer from '@material-ui/core/TableContainer';
 import TableFooter from '@material-ui/core/TableFooter';
@@ -115,6 +116,8 @@ const useStyles2 = makeStyles({
 
 export default function Middle(props) {
   const rows = props.sentence
+ 
+
   console.log(props)
   const classes = useStyles2();
   const [page, setPage] = React.useState(0);
@@ -130,16 +133,37 @@ export default function Middle(props) {
     setRowsPerPage(parseInt(event.target.value, 10));
     setPage(0);
   };
+  const gg=(g1)=>{
+    var gg="dwfwdww";
+    gg.substring(0,2)
 
+  }
+  
   return (
+
     <TableContainer component={Paper}>
       <Table className={classes.table} aria-label="custom pagination table">
+        <TableHead>
+      <TableCell>
+        닉네임
+      </TableCell>
+      <TableCell>
+        리뷰내용
+      </TableCell>
+      <TableCell>
+        날짜
+      </TableCell>
+      <TableCell>
+        정확도
+      </TableCell>
+        </TableHead>
         <TableBody>
           {(rowsPerPage > 0
             ? rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
             : rows
           ).map((row) => (
             <TableRow key={row.review_id}>
+            
               <TableCell component="th" scope="row">
                 {row.review_reviewer}
               </TableCell>
@@ -150,7 +174,7 @@ export default function Middle(props) {
                 {row.review_date}
               </TableCell>
               <TableCell style={{ width: 160 }} align="right">
-                {row.review_accuracy}
+             { parseInt(row.review_accuracy)}%
               </TableCell>
             </TableRow>
           ))}
@@ -166,7 +190,7 @@ export default function Middle(props) {
             <TablePagination
               rowsPerPageOptions={[5, 10, 25, { label: 'All', value: -1 }]}
               colSpan={4}
-              count={rows.length}
+              count={rows.length} 
               rowsPerPage={rowsPerPage}
               page={page}
               SelectProps={{

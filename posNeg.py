@@ -105,7 +105,7 @@ def step3_get_reply_data(df) :
         # 현재 페이지
 #         now_page = 1
         now_page = 1
-        pageCnt = 5        # 테스트로 5페이지까지만
+        # pageCnt = 5        # 테스트로 5페이지까지만
         
         while now_page <= pageCnt :
             #sleep(1)
@@ -197,7 +197,7 @@ def tokenizer(text) :
 
 def step7_insert_review(df) :
     # 객체를 복원한다.
-    with open('pipe.dat', 'rb') as fp:
+    with open('pipe_model.dat', 'rb') as fp:
         pipe = pickle.load(fp)
 
     import numpy as np
@@ -254,7 +254,7 @@ def model(X):
 def index(score,value): #Outlit score 최소인 20개 리뷰 확인
     index = []
     score=score.tolist()
-    for j in range(10): #10개 추출
+    for j in range(5): #10개 추출
         find_index=score.index(value[j])
         index.append(find_index)
     return index
@@ -317,7 +317,7 @@ def outlier_comp(data):
 #     c_data= concat(data)
     ifor=model(data)
     scores_f= -ifor.decision_function(data)
-    d_scatter(scores_f)
+    # d_scatter(scores_f)
     return scores_f
 
 def min_score(score): #outlier score 최소인 10개 값 추출

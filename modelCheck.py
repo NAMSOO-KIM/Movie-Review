@@ -22,7 +22,7 @@ def tokenizer(text) :
     
 def step6_using_model() :
     # 객체를 복원한다.
-    with open('pipe.dat', 'rb') as fp:
+    with open('pipe_model.dat', 'rb') as fp:
         pipe = pickle.load(fp)
 
     import numpy as np
